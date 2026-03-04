@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Happy Birthday Bhavesh ❤️</title>
+
+<style>
+body {
+  background: linear-gradient(to right, #ff758c, #ff7eb3);
+  text-align: center;
+  font-family: Arial, sans-serif;
+  color: white;
+  padding-top: 40px;
+}
+
+h1 {
+  font-size: 42px;
+}
+
+#timer {
+  font-size: 30px;
+  margin: 20px;
+  font-weight: bold;
+}
+
+/* Slideshow */
+.slideshow {
+  width: 300px;
+  height: 300px;
+  margin: 20px auto;
+  position: relative;
+}
+
+.slideshow img {
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  position: absolute;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  object-fit: cover;
+}
+
+.slideshow img.active {
+  opacity: 1;
+}
+
+.message {
+  font-size: 20px;
+  margin-top: 30px;
+  width: 75%;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+.heart {
+  font-size: 45px;
+  animation: beat 1s infinite;
+}
+
+@keyframes beat {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.3); }
+  100% { transform: scale(1); }
+}
+</style>
+</head>
+
+<body>
+
+<h1>Happy Birthday Bhavesh ❤️</h1>
+
+<!-- 📸 Slideshow Section -->
+<div class="slideshow">
+  <img src="photo1.jpg" class="active">
+  <img src="photo2.jpg">
+  <img src="photo3.jpg">
+</div>
+
+<div id="timer"></div>
+
+<div class="message">
+My Dearest Bhavesh 💕<br><br>
+You are the most special person in my life 🥹<br>
+Your smile makes my world brighter ✨<br>
+I’m so lucky to have you as mine 💖<br><br>
+Apke liye ek cute sa bday wish banane ki koshish ki hai 🥰<br><br>
+Forever yours,<br>
+<strong>Chuhiya 🐭❤️</strong>
+</div>
+
+<div class="heart">❤️</div>
+
+<script>
+
+// 🎂 Birthday Countdown
+var today = new Date();
+var year = today.getFullYear();
+var birthday = new Date("March 5, " + year + " 00:00:00");
+
+if (today > birthday) {
+  birthday = new Date("March 5, " + (year + 1) + " 00:00:00");
+}
+
+var x = setInterval(function() {
+
+var now = new Date().getTime();
+var distance = birthday - now;
+
+var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+document.getElementById("timer").innerHTML =
+days + " Days 💕 " + hours + " Hours 💖 "
++ minutes + " Minutes ❤️ " + seconds + " Seconds ";
+
+if (distance < 0) {
+clearInterval(x);
+document.getElementById("timer").innerHTML =
+"🎉 IT'S YOUR BIRTHDAY BHAVESH MY LOVE 🎉";
+}
+
+}, 1000);
+
+// 📸 Slideshow Script
+let slides = document.querySelectorAll(".slideshow img");
+let current = 0;
+
+setInterval(() => {
+  slides[current].classList.remove("active");
+  current = (current + 1) % slides.length;
+  slides[current].classList.add("active");
+}, 3000);
+
+</script>
+
+</body>
+</html>
